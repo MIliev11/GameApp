@@ -504,11 +504,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/apple/Projects/Games/Games/Games.csproj",
+      "projectUniqueName": "/Users/apple/Projects/GameApp/Games/Games.csproj",
       "projectName": "Games",
-      "projectPath": "/Users/apple/Projects/Games/Games/Games.csproj",
+      "projectPath": "/Users/apple/Projects/GameApp/Games/Games.csproj",
       "packagesPath": "/Users/apple/.nuget/packages/",
-      "outputPath": "/Users/apple/Projects/Games/Games/obj",
+      "outputPath": "/Users/apple/Projects/GameApp/Games/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

@@ -942,11 +942,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/apple/Projects/Games/Games.Android/Games.Android.csproj",
+      "projectUniqueName": "/Users/apple/Projects/GameApp/Games.Android/Games.Android.csproj",
       "projectName": "Games.Android",
-      "projectPath": "/Users/apple/Projects/Games/Games.Android/Games.Android.csproj",
+      "projectPath": "/Users/apple/Projects/GameApp/Games.Android/Games.Android.csproj",
       "packagesPath": "/Users/apple/.nuget/packages/",
-      "outputPath": "/Users/apple/Projects/Games/Games.Android/obj",
+      "outputPath": "/Users/apple/Projects/GameApp/Games.Android/obj",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/apple/.config/NuGet/NuGet.Config"
@@ -960,8 +960,8 @@
       "frameworks": {
         "monoandroid81": {
           "projectReferences": {
-            "/Users/apple/Projects/Games/Games/Games.csproj": {
-              "projectPath": "/Users/apple/Projects/Games/Games/Games.csproj"
+            "/Users/apple/Projects/GameApp/Games/Games.csproj": {
+              "projectPath": "/Users/apple/Projects/GameApp/Games/Games.csproj"
             }
           }
         }

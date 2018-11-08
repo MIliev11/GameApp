@@ -21,7 +21,7 @@ namespace Games
         {
             InitializeComponent();
 
-            //await NavigationService.NavigateAsync("NavigationPage/ButtonsGamePage");
+            await NavigationService.NavigateAsync(new Uri("RegistrationPage", UriKind.Relative));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

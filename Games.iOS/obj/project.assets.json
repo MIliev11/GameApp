@@ -1048,11 +1048,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/apple/Projects/Games/Games.iOS/Games.iOS.csproj",
+      "projectUniqueName": "/Users/apple/Projects/GameApp/Games.iOS/Games.iOS.csproj",
       "projectName": "Games.iOS",
-      "projectPath": "/Users/apple/Projects/Games/Games.iOS/Games.iOS.csproj",
+      "projectPath": "/Users/apple/Projects/GameApp/Games.iOS/Games.iOS.csproj",
       "packagesPath": "/Users/apple/.nuget/packages/",
-      "outputPath": "/Users/apple/Projects/Games/Games.iOS/obj",
+      "outputPath": "/Users/apple/Projects/GameApp/Games.iOS/obj",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/apple/.config/NuGet/NuGet.Config"
@@ -1066,8 +1066,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "/Users/apple/Projects/Games/Games/Games.csproj": {
-              "projectPath": "/Users/apple/Projects/Games/Games/Games.csproj"
+            "/Users/apple/Projects/GameApp/Games/Games.csproj": {
+              "projectPath": "/Users/apple/Projects/GameApp/Games/Games.csproj"
             }
           }
         }
