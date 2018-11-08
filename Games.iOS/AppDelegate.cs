@@ -28,7 +28,7 @@ namespace Games.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App(new IOSInitializer()));
-
+            SQLitePCL.Batteries.Init();
             return base.FinishedLaunching(app, options);
         }
 

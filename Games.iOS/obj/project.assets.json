@@ -7437,12 +7437,6 @@
         }
       }
     },
-    "dependencies": {
-      "Microsoft.EntityFrameworkCore.Sqlite": {
-        "target": "Package",
-        "version": "[2.1.4, )"
-      }
-    },
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
@@ -7453,6 +7447,10 @@
           "Prism.Unity.Forms": {
             "target": "Package",
             "version": "7.1.0.431"
+          },
+          "Microsoft.EntityFrameworkCore.Sqlite": {
+            "target": "Package",
+            "version": "2.1.4"
           }
         }
       }

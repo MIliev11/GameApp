@@ -40,7 +40,7 @@ namespace Games.ViewModel
                 await NavigationService.NavigateAsync(new Uri("http://www.Games/GameChosePage", UriKind.Absolute));
             }
             else
-                await PageDialog.DisplayAlertAsync("Username", "Use another username to continue", "OK");
+                await PageDialog?.DisplayAlertAsync("Username", "Use another username to continue", "OK");
         }
 
         private bool CanUseUsername() {

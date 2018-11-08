@@ -5008,12 +5008,6 @@
         }
       }
     },
-    "dependencies": {
-      "System.Buffers": {
-        "target": "Package",
-        "version": "[4.5.0, )"
-      }
-    },
     "frameworks": {
       "monoandroid81": {
         "dependencies": {
@@ -5048,6 +5042,10 @@
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
             "version": "2.1.4"
+          },
+          "System.Buffers": {
+            "target": "Package",
+            "version": "4.5.0"
           }
         }
       }

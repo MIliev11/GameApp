@@ -11,7 +11,7 @@ namespace Games.Model
     public class UserManager
     {
 
-        private string _fileName = "database.db";
+        private string _fileName = "users.db";
 
         public UserManager()
         {
@@ -43,7 +43,18 @@ namespace Games.Model
         }
 
         public string GetDefaultUsername() {
-            return "Player";
+            string result = "Player";
+            int counter = 0;
+
+            using (var db = new ApplicationContext(DependencyService.Get<IDataBasePathProvider>().GetDataBasePath(_fileName)))
+            {
+                db.Database.EnsureCreated();
+                foreach (User userThatExist in db.Users)
+                    if (userThatExist.Username.Contains(result))
+                        counter++;
+            }
+
+            return result + " " + counter;
         }
 
 
