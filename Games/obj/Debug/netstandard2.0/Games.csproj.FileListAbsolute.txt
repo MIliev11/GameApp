@@ -1,0 +1,13 @@
+/Users/apple/Projects/Games/Games/bin/Debug/netstandard2.0/Games.deps.json
+/Users/apple/Projects/Games/Games/bin/Debug/netstandard2.0/Games.dll
+/Users/apple/Projects/Games/Games/bin/Debug/netstandard2.0/Games.pdb
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/Games.csproj.CoreCompileInputs.cache
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/Games.AssemblyInfoInputs.cache
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/Games.AssemblyInfo.cs
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/Games.dll
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/Games.pdb
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/Games.csprojAssemblyReference.cache
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/View/Components/ButtonHolderContentView.xaml.g.cs
+/Users/apple/Projects/Games/Games/obj/Debug/netstandard2.0/View/GamePages/ButtonsGamePage.xaml.g.cs
