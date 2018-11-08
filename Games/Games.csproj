@@ -12,6 +12,7 @@
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
     <PackageReference Include="Prism.Unity.Forms" Version="7.1.0.431" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.4" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
@@ -21,6 +22,7 @@
     <Folder Include="ViewModel\" />
     <Folder Include="ViewModel\GamePageViewModels\" />
     <Folder Include="Services\" />
+    <Folder Include="Model\Data\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="PrismApplication.cs" />

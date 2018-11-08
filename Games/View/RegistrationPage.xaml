@@ -7,9 +7,9 @@
         
         <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10">
             
-            <Entry Placeholder="Username" />
+            <Entry Placeholder="Username" Text="{Binding Username}" />
             
-            <Button Text="Start" BorderRadius="10" />
+            <Button Text="Start" BorderRadius="10" Command="{Binding OnStartPressedCommand}"/>
             
         </StackLayout>
         

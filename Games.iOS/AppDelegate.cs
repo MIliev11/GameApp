@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using Games.iOS.Services;
+using Games.Services;
 using Prism;
 using Prism.Ioc;
 using UIKit;
