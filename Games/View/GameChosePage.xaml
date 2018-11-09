@@ -1,5 +1,14 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Games.View.GameChosePage">
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Games.View.GameChosePage" Title="Chose game">
     <ContentPage.Content>
+        
+        <StackLayout HorizontalOptions="Fill" Margin="10">
+            
+            <Button Text="Buttons!" Command="{Binding OnClickedButtons}"/>
+            <Button Text="Game2" />
+            <Button Text="Game3" />
+            
+        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
