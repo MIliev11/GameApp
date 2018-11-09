@@ -4,13 +4,16 @@ namespace Games.Model.Data
     public class User
     {
 
+        public User()
+        { }
+
+        #region -- Private helpers --
+
         public int? ID { get; set; }
+
         public string Username { get; set; }
 
-        public User()
-        {
-        }
-
+        #endregion
 
         public User(string Username)
         {

@@ -11,17 +11,24 @@ namespace Games.Model
     public class UserManager
     {
 
-        private string _fileName = "users.db";
+        #region -- Private helpers --
+
+        private const string FILE_NAME = "users.db";
+
+        private string _path;
+
+        #endregion
 
         public UserManager()
         {
+            _path = DependencyService.Get<IDataBasePathProvider>().GetDataBasePath(FILE_NAME);
         }
 
         public bool Exist(User userToCheck)
         {
             bool result = false;
 
-            using(var db = new ApplicationContext(DependencyService.Get<IDataBasePathProvider>().GetDataBasePath(_fileName)))
+            using (var db = new ApplicationContext(_path))
             {
                 db.Database.EnsureCreated();
                 foreach (User userThatExist in db.Users)
@@ -34,7 +41,7 @@ namespace Games.Model
 
         public void AddUser(User user)
         {
-            using (var db = new ApplicationContext(DependencyService.Get<IDataBasePathProvider>().GetDataBasePath(_fileName)))
+            using (var db = new ApplicationContext(_path))
             {
                 db.Database.EnsureCreated();
                 db.Users.Add(user);
@@ -42,11 +49,12 @@ namespace Games.Model
             }
         }
 
-        public string GetDefaultUsername() {
+        public string GetDefaultUsername()
+        {
             string result = "Player";
             int counter = 0;
 
-            using (var db = new ApplicationContext(DependencyService.Get<IDataBasePathProvider>().GetDataBasePath(_fileName)))
+            using (var db = new ApplicationContext(_path))
             {
                 db.Database.EnsureCreated();
                 foreach (User userThatExist in db.Users)

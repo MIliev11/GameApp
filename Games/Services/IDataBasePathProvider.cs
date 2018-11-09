@@ -1,5 +1,4 @@
-﻿using System;
-namespace Games.Services
+﻿namespace Games.Services
 {
     public interface IDataBasePathProvider
     {
