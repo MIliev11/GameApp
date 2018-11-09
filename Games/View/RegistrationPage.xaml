@@ -5,7 +5,7 @@
     
     <ContentPage.Content>
         
-        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Margin="10">
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="10">
             
             <Entry Placeholder="Username" Text="{Binding Username}" />
             
