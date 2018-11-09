@@ -21,6 +21,7 @@ namespace Games
         {
             InitializeComponent();
 
+
             //await NavigationService.NavigateAsync("NavigationPage/ButtonsGamePage");
         }
 
