@@ -7,7 +7,12 @@ namespace Games.Model.Data
         public User()
         { }
 
-        #region -- Private helpers --
+        public User(string username)
+        {
+            Username = username;
+        }
+
+        #region -- Public propeties --
 
         public int? ID { get; set; }
 
@@ -15,15 +20,14 @@ namespace Games.Model.Data
 
         #endregion
 
-        public User(string Username)
-        {
-            this.Username = Username;
-        }
+        #region -- Overrides --
 
         public override bool Equals(object obj)
         {
             return Username == (obj as User).Username;
         }
+
+        #endregion
 
     }
 }

@@ -12,13 +12,9 @@ namespace Games.ViewModel
     public class RegistrationPageViewModel : ViewModelBase
     {
 
-        #region -- Private helpers --
-
         private IPageDialogService _pageDialog;
 
         private UserManager _userManager;
-
-        #endregion
 
         public RegistrationPageViewModel(INavigationService navigationService, IPageDialogService pageDialog) : base(navigationService)
         {
@@ -41,6 +37,8 @@ namespace Games.ViewModel
 
         #endregion
 
+        #region -- Private helpers --
+
         private async void OnStarted()
         {
             if (CanUseUsername())
@@ -58,5 +56,8 @@ namespace Games.ViewModel
                 return !_userManager.Exist(new User(Username));
             return false;
         }
+
+        #endregion
+
     }
 }

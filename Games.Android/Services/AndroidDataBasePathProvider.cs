@@ -7,15 +7,20 @@ using Xamarin.Forms;
 [assembly: Dependency(typeof(AndroidDataBasePathProvider))]
 namespace Games.Droid.Services
 {
-	public class AndroidDataBasePathProvider : IDataBasePathProvider
+    public class AndroidDataBasePathProvider : IDataBasePathProvider
     {
+
         public AndroidDataBasePathProvider()
-        {
-        }
+        { }
+
+        #region -- IConnectionService implements --
 
         public string GetDataBasePath(string databaseFileName)
         {
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), databaseFileName);
         }
+
+        #endregion
+
     }
 }

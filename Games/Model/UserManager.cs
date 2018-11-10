@@ -11,13 +11,9 @@ namespace Games.Model
     public class UserManager
     {
 
-        #region -- Private helpers --
-
         private const string FILE_NAME = "users.db";
 
         private string _path;
-
-        #endregion
 
         public UserManager()
         {

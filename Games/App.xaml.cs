@@ -17,6 +17,8 @@ namespace Games
 
         public App(IPlatformInitializer platformInitializer) : base(platformInitializer) { }
 
+        #region -- Overrides --
+
         protected override async void OnInitialized()
         {
             InitializeComponent();
@@ -34,6 +36,9 @@ namespace Games
 
             containerRegistry.RegisterForNavigation<ButtonsGamePage, ButtonsGamePageViewModel>();
         }
+
+
+        #endregion
 
     }
 }

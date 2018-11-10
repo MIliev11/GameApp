@@ -7,11 +7,7 @@ namespace Games.Model
     public class ApplicationContext : DbContext
     {
 
-        #region -- Private helpers --
-
         private readonly string _databasePath;
-
-        #endregion
 
         public ApplicationContext(string databasePath)
         {
@@ -24,7 +20,7 @@ namespace Games.Model
 
         #endregion
 
-        #region -- Private helpers --
+        #region -- Overrides --
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -32,5 +28,6 @@ namespace Games.Model
         }
 
         #endregion
+
     }
 }
