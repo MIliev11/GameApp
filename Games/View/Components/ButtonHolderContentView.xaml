@@ -8,11 +8,27 @@
     <Style.Triggers>
         
         <Trigger BindingContext="{x:Reference This}" TargetType="local:ButtonHolderContentView" Property="IsSelected" Value="true">
-            <Setter Property="CurrentColor" Value="Yellow"/>  
+            <Setter Property="CurrentColor" Value="Blue"/>  
         </Trigger>
         
     </Style.Triggers>
     
-    <Button BindingContext="{x:Reference This}" Clicked="Handle_Clicked" BackgroundColor="{Binding CurrentColor}"/>
-    
+    <Grid BindingContext="{x:Reference This}">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <BoxView BackgroundColor="{Binding CurrentColor}" Grid.Row="0" Grid.Column="0"/>
+        <Image Source="1.jpg" Grid.Row="0" Grid.Column="0"/>
+        
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Handle_Clicked" NumberOfTapsRequired="1" />
+        </Grid.GestureRecognizers>
+        
+    </Grid>
+
 </ContentView>

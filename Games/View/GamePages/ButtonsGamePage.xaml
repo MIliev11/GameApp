@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:Games.View.Components"
-             x:Class="Games.View.GamePages.ButtonsGamePage">
-    
-    
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Games.View.Components" x:Class="Games.View.GamePages.ButtonsGamePage">
     <Grid>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -19,9 +13,18 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
-        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="0" YGridPosition="0" XGridPosition="0"
-                                       Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
+        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="0" YGridPosition="0" XGridPosition="0" Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime">
+            <local:ButtonHolderContentView.SelectedColor>
+                <Color x:FactoryMethod="FromHsla">
+                    <x:Arguments>
+                        <x:Double>0.23</x:Double>
+                        <x:Double>0.42</x:Double>
+                        <x:Double>0.69</x:Double>
+                        <x:Double>0.7</x:Double>
+                    </x:Arguments>
+                </Color>
+            </local:ButtonHolderContentView.SelectedColor>
+        </local:ButtonHolderContentView>
         <local:ButtonHolderContentView Grid.Row="0" Grid.Column="1" YGridPosition="0" XGridPosition="1"
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
         <local:ButtonHolderContentView Grid.Row="0" Grid.Column="2" YGridPosition="0" XGridPosition="2"
@@ -38,16 +41,14 @@
         <local:ButtonHolderContentView Grid.Row="1" Grid.Column="3" YGridPosition="1" XGridPosition="3"
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
         
-        
         <local:ButtonHolderContentView Grid.Row="2" Grid.Column="0" YGridPosition="2" XGridPosition="0"
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
         <local:ButtonHolderContentView Grid.Row="2" Grid.Column="1" YGridPosition="2" XGridPosition="1"
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
         <local:ButtonHolderContentView Grid.Row="2" Grid.Column="2" YGridPosition="2" XGridPosition="2"
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
-        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="3" YGridPosition="2" XGridPosition="3"
+        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="3" YGridPosition="2" XGridPosition="3" 
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
-        
         
         <local:ButtonHolderContentView Grid.Row="3" Grid.Column="0" YGridPosition="3" XGridPosition="0"
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
@@ -57,9 +58,5 @@
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
         <local:ButtonHolderContentView Grid.Row="3" Grid.Column="3" YGridPosition="3" XGridPosition="3"
                                        Command="{Binding OnButtonPressEventHandle}" SelectedColor="Lime" />
-        
-        
     </Grid>
-    
-    
 </ContentPage>

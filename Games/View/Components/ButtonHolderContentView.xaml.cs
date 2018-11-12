@@ -64,6 +64,19 @@ namespace Games.View.Components
             }
         }
 
+        public static BindableProperty ImageSourceProperty = BindableProperty.Create("ImageSource", typeof(ImageSource), typeof(ButtonHolderContentView), ImageSource.FromFile(""), BindingMode.TwoWay);
+        public ImageSource ImageSource
+        {
+            get
+            {
+                return (ImageSource)GetValue(ImageSourceProperty);
+            }
+            set
+            {
+                SetValue(ImageSourceProperty, value);
+            }
+        }
+
         public ButtonHolderContentView()
         {
             InitializeComponent();
