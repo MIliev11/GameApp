@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Games.View.GamePages.Components.ButtonsGameUIElements"
+             x:Class="Games.View.GamePages.Components.ButtonsGameUIElements.ButtonHolderContentView"
+             x:Name="This">
+    
+    <Grid BindingContext="{x:Reference This}">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <BoxView BackgroundColor="{Binding CurrentColor}" Grid.Row="0" Grid.Column="0"/>
+        <Image Source="{Binding ImageSource}" Grid.Row="0" Grid.Column="0"/>
+        
+        <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="Handle_Clicked" NumberOfTapsRequired="1" />
+        </Grid.GestureRecognizers>
+        
+    </Grid>
+
+</ContentView>

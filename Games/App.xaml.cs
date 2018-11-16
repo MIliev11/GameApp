@@ -4,10 +4,12 @@ using Xamarin.Forms.Xaml;
 using Prism;
 using Prism.Unity;
 using Prism.Ioc;
-using Games.View.GamePages;
-using Games.ViewModel.GamePageViewModels;
 using Games.View;
 using Games.ViewModel;
+using Games.ViewModel.GamePageViewModels;
+using Games.View.GamePages;
+using Prism.Events;
+using Games.Events;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Games
@@ -15,24 +17,31 @@ namespace Games
     public partial class App : PrismApplication
     {
 
+        IEventAggregator aggregator;
+
         public App(IPlatformInitializer platformInitializer) : base(platformInitializer) { }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/ButtonsGamePage");
+            aggregator = Container.Resolve<IEventAggregator>();
+
+            await NavigationService.NavigateAsync("NavigationPage/GamePageButtons");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
 
+            containerRegistry.RegisterForNavigation<GamePageButtons, ButtonsGamePageViewModel>();
+
             containerRegistry.RegisterForNavigation<RegistrationPage, RegistrationPageViewModel>();
             containerRegistry.RegisterForNavigation<GameChosePage, GameChosePageViewModel>();
             containerRegistry.RegisterForNavigation<ScoreResultsPage, ScoreResultsPageViewModel>();
 
-            containerRegistry.RegisterForNavigation<ButtonsGamePage, ButtonsGamePageViewModel>();
+
+            containerRegistry.RegisterInstance<IEventAggregator>(Container.Resolve<IEventAggregator>());
         }
 
     }

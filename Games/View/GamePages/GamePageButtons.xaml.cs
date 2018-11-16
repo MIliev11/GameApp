@@ -5,9 +5,9 @@ using Xamarin.Forms;
 
 namespace Games.View.GamePages
 {
-    public partial class ButtonsGamePage : ContentPage
+    public partial class GamePageButtons : ContentPage
     {
-        public ButtonsGamePage()
+        public GamePageButtons()
         {
             InitializeComponent();
         }
