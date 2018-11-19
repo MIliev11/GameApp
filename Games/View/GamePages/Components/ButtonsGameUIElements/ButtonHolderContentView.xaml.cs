@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Games.Model.ButtonsGame;
-using System.Collections.ObjectModel;
 using Games.ViewModel.GamePageViewModels.ComponentsViewModels;
 using System.Threading.Tasks;
 
@@ -12,85 +10,109 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
     public partial class ButtonHolderContentView : ContentView
     {
 
+        public ButtonHolderContentView()
+        {
+            InitializeComponent();
+            BindingContextChanged += ButtonHolderContentView_BindingContextChanged;
+        }
+
+        #region -- Public properties --
+
         public static BindableProperty CurrentColorProperty = BindableProperty.Create("CurrentColor", typeof(Color), typeof(ButtonHolderContentView), Color.White, BindingMode.TwoWay);
         public Color CurrentColor
         {
-            get
-            {
-                return (Color)GetValue(CurrentColorProperty);
-            }
-            set
-            {
-                SetValue(CurrentColorProperty, value);
-            }
+            get => (Color)GetValue(CurrentColorProperty);
+            set => SetValue(CurrentColorProperty, value);
         }
 
         public static BindableProperty SelectedColorProperty = BindableProperty.Create("SelectedColor", typeof(Color), typeof(ButtonHolderContentView), Color.Black, BindingMode.TwoWay);
         public Color SelectedColor
         {
-            get
-            {
-                return (Color)GetValue(SelectedColorProperty);
-            }
-            set
-            {
-                SetValue(SelectedColorProperty, value);
-            }
+            get => (Color)GetValue(SelectedColorProperty);
+            set => SetValue(SelectedColorProperty, value);
         }
 
-        public static BindableProperty IsSelectedProperty = BindableProperty.Create("IsSelected", typeof(bool), typeof(ButtonHolderContentView), false, BindingMode.TwoWay);
-        public bool IsSelected
-        {
-            get
-            {
-                return (bool)GetValue(IsSelectedProperty);
-            }
-            set
-            {
-                SetValue(IsSelectedProperty, value);
-                CurrentColor = IsSelected ? SelectedColor : Color.White;
-            }
-        }
-
-        public static BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(ButtonHolderContentView), null, BindingMode.TwoWay);
-        public ICommand Command
-        {
-            get
-            {
-                return (ICommand)GetValue(CommandProperty);
-            }
-            set
-            {
-                SetValue(CommandProperty, value);
-            }
-        }
-
-        public static BindableProperty ImageSourceProperty = BindableProperty.Create("ImageSource", typeof(ImageSource), typeof(ButtonHolderContentView), ImageSource.FromFile(""), BindingMode.TwoWay);
+        static BindableProperty ImageSourceProperty = BindableProperty.Create("ImageSource", typeof(ImageSource), typeof(ButtonHolderContentView), ImageSource.FromFile(""), BindingMode.TwoWay);
         public ImageSource ImageSource
         {
-            get
-            {
-                return (ImageSource)GetValue(ImageSourceProperty);
-            }
-            set
-            {
-                SetValue(ImageSourceProperty, value);
-            }
+            get => (ImageSource)GetValue(ImageSourceProperty);
+            set => SetValue(ImageSourceProperty, value);
         }
 
-        public static BindableProperty ButtonTypeProperty = BindableProperty.Create("ButtonType", typeof(EButtonType), typeof(ButtonHolderContentView), EButtonType.One, BindingMode.TwoWay);
+        public static BindableProperty ButtonTypeProperty = BindableProperty.Create("ButtonType", typeof(EButtonType), typeof(ButtonHolderContentView), EButtonType.One, BindingMode.TwoWay, propertyChanged: OnButtonTypePropertyChanged);
         public EButtonType ButtonType
         {
-            get
-            {
-                return (EButtonType)GetValue(ButtonTypeProperty);
-            }
+            get => (EButtonType)GetValue(ButtonTypeProperty);
             set
             {
                 SetValue(ButtonTypeProperty, value);
                 ChangeTypeTo(value);
             }
         }
+
+        private static void OnButtonTypePropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            ((ButtonHolderContentView)bindable).ButtonType = (EButtonType)newvalue;
+        }
+
+
+
+
+
+
+
+        public static BindableProperty SelectedProperty = BindableProperty.Create("Selected", typeof(bool), typeof(ButtonHolderContentView), false, BindingMode.TwoWay, propertyChanged: OnSelectedPropertyChanged);
+        public bool Selected
+        {
+            get => (bool)GetValue(SelectedProperty);
+            set
+            {
+                SetValue(SelectedProperty, value);
+                CurrentColor = value ? SelectedColor : Color.White;
+            }
+        }
+
+        private static void OnSelectedPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            ((ButtonHolderContentView)bindable).Selected = (bool)newvalue;
+        }
+
+
+
+
+
+
+        public static BindableProperty OrderedProperty = BindableProperty.Create("Ordered", typeof(bool), typeof(ButtonHolderContentView), false, BindingMode.TwoWay, propertyChanged: OnSelectedPropertyChanged);
+        public bool Ordered
+        {
+            get => (bool)GetValue(OrderedProperty);
+            set
+            {
+                Selected = true;
+                SetValue(OrderedProperty, value);
+            }
+        }
+
+        private static void OnOrderedPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            ((ButtonHolderContentView)bindable).Ordered = (bool)newvalue;
+        }
+
+
+
+
+
+
+        public static BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(ButtonHolderContentView), null, BindingMode.TwoWay);
+        public ICommand Command
+        {
+            get => (ICommand)GetValue(CommandProperty);
+            set => SetValue(CommandProperty, value);
+        }
+
+        #endregion
+
+        #region -- Private helpers --
 
         private Task ChangeTypeTo(EButtonType type)
         {
@@ -113,13 +135,9 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
                     ImageSource = ImageSource.FromFile("d.png");
                     break;
             }
-            return new Task(() => { });
-        }
+            CurrentColor = Selected ? SelectedColor : Color.White;
 
-        public ButtonHolderContentView()
-        {
-            InitializeComponent();
-            BindingContextChanged += ButtonHolderContentView_BindingContextChanged;
+            return new Task(() => { });
         }
 
         private async void ButtonHolderContentView_BindingContextChanged(object sender, EventArgs e)
@@ -129,14 +147,12 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
             await ChangeTypeTo(((ButtonsHolderContentViewViewModel)t.BindingContext).CurrentType);
         }
 
-        private void Handle_Clicked(object sender, System.EventArgs e)
+        void Handle_Tapped(object sender, System.EventArgs e)
         {
-            if (IsSelected)
-            {
-                Command?.Execute(null);
-            }
-            IsSelected = !IsSelected;
+            Command?.Execute(null);
         }
+
+        #endregion
 
     }
 }

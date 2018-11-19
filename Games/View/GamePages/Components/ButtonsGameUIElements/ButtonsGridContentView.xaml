@@ -6,15 +6,7 @@
              x:Class="Games.View.GamePages.Components.ButtonsGameUIElements.ButtonsGridContentView"
              x:Name="This">
     
-    <ContentView.Resources>
-        
-        <ResourceDictionary>
-            <converters:ButtonViewModelConvertor x:Key="listToOne" />
-        </ResourceDictionary>
-        
-    </ContentView.Resources>
-    
-     <Grid BindingContext="{x:Reference This}" x:Name="grida" >
+     <Grid>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -32,76 +24,41 @@
         
         
         
-        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="0"
-                                       BindingContext="{Binding Source={x:Reference This}, Path=Items, Converter={StaticResource listToOne}, ConverterParameter=0, Mode=OneWay}"
-                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" Command="{Binding ButtonClick}" />
-        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="1"
-                                       BindingContext="{Binding Source={x:Reference This}, Path=Items, Converter={StaticResource listToOne}, ConverterParameter=1, Mode=OneWay}"
-                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
+        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="0" BindingContext="{Binding Source={x:Reference This}, Path=Items[0], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=OneWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="1" BindingContext="{Binding Source={x:Reference This}, Path=Items[1], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="2" BindingContext="{Binding Source={x:Reference This}, Path=Items[2], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="3" BindingContext="{Binding Source={x:Reference This}, Path=Items[3], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
         
+        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="0" BindingContext="{Binding Source={x:Reference This}, Path=Items[4], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="1" BindingContext="{Binding Source={x:Reference This}, Path=Items[5], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="2" BindingContext="{Binding Source={x:Reference This}, Path=Items[6], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="3" BindingContext="{Binding Source={x:Reference This}, Path=Items[7], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
         
+        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="0" BindingContext="{Binding Source={x:Reference This}, Path=Items[8], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="1" BindingContext="{Binding Source={x:Reference This}, Path=Items[9], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="2" BindingContext="{Binding Source={x:Reference This}, Path=Items[10], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="3" BindingContext="{Binding Source={x:Reference This}, Path=Items[11], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
         
-        
-        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="2" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=2, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="0" Grid.Column="3" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=3, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        
-        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="0" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=4, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="1" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=5, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="2" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=6, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="1" Grid.Column="3" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=7, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        
-        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="0" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=8, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="1" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=9, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="2" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=10, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="2" Grid.Column="3" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=11, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        
-        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="0" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=12, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="1" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=13, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="2" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=14, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="3" BindingContext="{Binding Source={x:Reference This},
-                                                                                                          Path=Items,
-                                                                                                          Converter={StaticResource listToOne},
-                                                                                                          ConverterParameter=15, Mode=OneWay}" ButtonType="{Binding CurrentType, Mode=TwoWay}" IsSelected="{Binding IsSelected}" />
-        
+        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="0" BindingContext="{Binding Source={x:Reference This}, Path=Items[12], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="1" BindingContext="{Binding Source={x:Reference This}, Path=Items[13], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="2" BindingContext="{Binding Source={x:Reference This}, Path=Items[14], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+        <local:ButtonHolderContentView Grid.Row="3" Grid.Column="3" BindingContext="{Binding Source={x:Reference This}, Path=Items[15], Mode=TwoWay}"
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
         
     </Grid>
     

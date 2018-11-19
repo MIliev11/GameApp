@@ -17,15 +17,11 @@ namespace Games
     public partial class App : PrismApplication
     {
 
-        IEventAggregator aggregator;
-
         public App(IPlatformInitializer platformInitializer) : base(platformInitializer) { }
 
         protected override async void OnInitialized()
         {
             InitializeComponent();
-
-            aggregator = Container.Resolve<IEventAggregator>();
 
             await NavigationService.NavigateAsync("NavigationPage/GamePageButtons");
         }
@@ -39,9 +35,6 @@ namespace Games
             containerRegistry.RegisterForNavigation<RegistrationPage, RegistrationPageViewModel>();
             containerRegistry.RegisterForNavigation<GameChosePage, GameChosePageViewModel>();
             containerRegistry.RegisterForNavigation<ScoreResultsPage, ScoreResultsPageViewModel>();
-
-
-            containerRegistry.RegisterInstance<IEventAggregator>(Container.Resolve<IEventAggregator>());
         }
 
     }

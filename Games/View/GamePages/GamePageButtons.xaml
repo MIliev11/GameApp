@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Games.View.GamePages.Components.ButtonsGameUIElements"
              x:Class="Games.View.GamePages.GamePageButtons">
     
-    <local:ButtonsGridContentView Items="{Binding ItemsSource}" />
+    <local:ButtonsGridContentView Items="{Binding ItemsSource, Mode=OneWay}" />
     
 </ContentPage>
