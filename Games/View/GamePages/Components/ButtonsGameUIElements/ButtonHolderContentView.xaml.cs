@@ -16,30 +16,44 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
             BindingContextChanged += ButtonHolderContentView_BindingContextChanged;
         }
 
-        #region -- Public properties --
+        #region -- Public static vars --
 
         public static BindableProperty CurrentColorProperty = BindableProperty.Create("CurrentColor", typeof(Color), typeof(ButtonHolderContentView), Color.White, BindingMode.TwoWay);
+
+        public static BindableProperty SelectedColorProperty = BindableProperty.Create("SelectedColor", typeof(Color), typeof(ButtonHolderContentView), Color.Black, BindingMode.TwoWay);
+
+        public static BindableProperty ImageSourceProperty = BindableProperty.Create("ImageSource", typeof(ImageSource), typeof(ButtonHolderContentView), ImageSource.FromFile(""), BindingMode.TwoWay);
+
+        public static BindableProperty ButtonTypeProperty = BindableProperty.Create("ButtonType", typeof(EButtonType), typeof(ButtonHolderContentView), EButtonType.One, BindingMode.TwoWay, propertyChanged: OnButtonTypePropertyChanged);
+
+        public static BindableProperty SelectedProperty = BindableProperty.Create("Selected", typeof(bool), typeof(ButtonHolderContentView), false, BindingMode.TwoWay, propertyChanged: OnSelectedPropertyChanged);
+
+        public static BindableProperty OrderedProperty = BindableProperty.Create("Ordered", typeof(bool), typeof(ButtonHolderContentView), false, BindingMode.TwoWay, propertyChanged: OnSelectedPropertyChanged);
+
+        public static BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(ButtonHolderContentView), null, BindingMode.TwoWay);
+
+        #endregion
+
+        #region -- Public properties --
+
         public Color CurrentColor
         {
             get => (Color)GetValue(CurrentColorProperty);
             set => SetValue(CurrentColorProperty, value);
         }
 
-        public static BindableProperty SelectedColorProperty = BindableProperty.Create("SelectedColor", typeof(Color), typeof(ButtonHolderContentView), Color.Black, BindingMode.TwoWay);
         public Color SelectedColor
         {
             get => (Color)GetValue(SelectedColorProperty);
             set => SetValue(SelectedColorProperty, value);
         }
 
-        static BindableProperty ImageSourceProperty = BindableProperty.Create("ImageSource", typeof(ImageSource), typeof(ButtonHolderContentView), ImageSource.FromFile(""), BindingMode.TwoWay);
         public ImageSource ImageSource
         {
             get => (ImageSource)GetValue(ImageSourceProperty);
             set => SetValue(ImageSourceProperty, value);
         }
 
-        public static BindableProperty ButtonTypeProperty = BindableProperty.Create("ButtonType", typeof(EButtonType), typeof(ButtonHolderContentView), EButtonType.One, BindingMode.TwoWay, propertyChanged: OnButtonTypePropertyChanged);
         public EButtonType ButtonType
         {
             get => (EButtonType)GetValue(ButtonTypeProperty);
@@ -50,18 +64,6 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
             }
         }
 
-        private static void OnButtonTypePropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-            ((ButtonHolderContentView)bindable).ButtonType = (EButtonType)newvalue;
-        }
-
-
-
-
-
-
-
-        public static BindableProperty SelectedProperty = BindableProperty.Create("Selected", typeof(bool), typeof(ButtonHolderContentView), false, BindingMode.TwoWay, propertyChanged: OnSelectedPropertyChanged);
         public bool Selected
         {
             get => (bool)GetValue(SelectedProperty);
@@ -72,17 +74,6 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
             }
         }
 
-        private static void OnSelectedPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-            ((ButtonHolderContentView)bindable).Selected = (bool)newvalue;
-        }
-
-
-
-
-
-
-        public static BindableProperty OrderedProperty = BindableProperty.Create("Ordered", typeof(bool), typeof(ButtonHolderContentView), false, BindingMode.TwoWay, propertyChanged: OnSelectedPropertyChanged);
         public bool Ordered
         {
             get => (bool)GetValue(OrderedProperty);
@@ -93,17 +84,6 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
             }
         }
 
-        private static void OnOrderedPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
-        {
-            ((ButtonHolderContentView)bindable).Ordered = (bool)newvalue;
-        }
-
-
-
-
-
-
-        public static BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(ButtonHolderContentView), null, BindingMode.TwoWay);
         public ICommand Command
         {
             get => (ICommand)GetValue(CommandProperty);
@@ -147,9 +127,28 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
             await ChangeTypeTo(((ButtonsHolderContentViewViewModel)t.BindingContext).CurrentType);
         }
 
-        void Handle_Tapped(object sender, System.EventArgs e)
+        private void Handle_Tapped(object sender, System.EventArgs e)
         {
             Command?.Execute(null);
+        }
+
+        #endregion
+
+        #region -- Private static methods --
+
+        private static void OnButtonTypePropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            ((ButtonHolderContentView)bindable).ButtonType = (EButtonType)newvalue;
+        }
+
+        private static void OnOrderedPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            ((ButtonHolderContentView)bindable).Ordered = (bool)newvalue;
+        }
+
+        private static void OnSelectedPropertyChanged(BindableObject bindable, object oldvalue, object newvalue)
+        {
+            ((ButtonHolderContentView)bindable).Selected = (bool)newvalue;
         }
 
         #endregion
