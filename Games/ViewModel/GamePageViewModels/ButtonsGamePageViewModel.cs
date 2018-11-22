@@ -1,18 +1,13 @@
 ﻿using System;
 using Prism.Navigation;
-using System.Collections.ObjectModel;
 using Games.ViewModel.GamePageViewModels.ComponentsViewModels;
 using Games.Model.ButtonsGame;
-using Xamarin.Forms;
 using Games.Extentions;
-using System.Windows.Input;
 using Prism.Services;
 using System.Threading.Tasks;
 using Prism.Events;
 using Games.Events;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 
 namespace Games.ViewModel.GamePageViewModels
 {
@@ -20,8 +15,16 @@ namespace Games.ViewModel.GamePageViewModels
     {
         private string _userName;
 
+        private long _startedTime;
+
+        private IEventAggregator _eventAgregator;
+
+        private IPageDialogService _dialogService;
+
         public ButtonsGamePageViewModel(INavigationService navigation, IPageDialogService dialogService, IEventAggregator agregator) : base(navigation)
         {
+            _eventAgregator = agregator;
+            _dialogService = dialogService;
             ItemsSource = new List<ButtonsHolderContentViewViewModel>
             {
                 new ButtonsHolderContentViewViewModel(EButtonType.One, agregator),
@@ -40,36 +43,10 @@ namespace Games.ViewModel.GamePageViewModels
                 new ButtonsHolderContentViewViewModel(EButtonType.Four, agregator),
                 new ButtonsHolderContentViewViewModel(EButtonType.Four, agregator),
                 new ButtonsHolderContentViewViewModel(EButtonType.Four, agregator)
-                                                       };
-            Stopwatch.StartNew();
-            agregator.GetEvent<ButtonPressedEvent>().Subscribe((type) =>
-            {
-                EButtonType collected = ItemsSource.CollectedButtons();
-                int Count = ItemsSource.GetNumberOfSelectedButton();
-
-                if (collected == EButtonType.Null || (type == collected && Count < 4))
-                    return;
-                if (type != collected || ItemsSource.IsAnotherSelected(type))
-                    ItemsSource.UnselectAll();
-                if (type == collected && Count == 4)
-                    ItemsSource.ReorderByType(collected);
-
-                RaisePropertyChanged(nameof(ItemsSource));
-
-                if (ItemsSource.IsAllOrdered())
-                    agregator.GetEvent<GameEndsEvent>().Publish();
-            });
-            agregator.GetEvent<GameEndsEvent>().Subscribe(async () =>
-            {
-                long passedTime = Stopwatch.GetTimestamp();
-                await Task.Delay(1000);
-                await dialogService.DisplayAlertAsync("Congrats!", String.Format("You scored {0} points!", passedTime), "Submit");
-                NavigationParameters parameters = new NavigationParameters();
-                parameters.Add("Game", "Buttons");
-                parameters.Add("Player", _userName);
-                parameters.Add("Score", passedTime);
-                await navigation.NavigateAsync(new System.Uri("https://Games.com/NavigationPage/GameChosePage/ScoreResultsPage", UriKind.Absolute), parameters);
-            });
+            };
+            _startedTime = DateTime.Now.Ticks;
+            agregator.GetEvent<ButtonPressedEvent>().Subscribe(OnAnyButtonPressed);
+            agregator.GetEvent<GameEndsEvent>().Subscribe(OnGameEnds);
         }
 
         #region -- Public properties --
@@ -92,5 +69,38 @@ namespace Games.ViewModel.GamePageViewModels
 
         #endregion
 
+        #region -- Private helpers --
+
+        private void OnAnyButtonPressed(EButtonType type)
+        {
+            EButtonType collected = ItemsSource.CollectedButtons();
+            int Count = ItemsSource.GetNumberOfSelectedButton();
+
+            if (ItemsSource.IsAnotherSelected(type))
+                ItemsSource.UnselectAll();
+            if (Count == 4)
+                ItemsSource.ReorderByType(collected);
+
+            RaisePropertyChanged(nameof(ItemsSource));
+
+            if (ItemsSource.IsAllOrdered())
+                _eventAgregator.GetEvent<GameEndsEvent>().Publish();
+        }
+
+        private async void OnGameEnds()
+        {
+            long passedTime = DateTime.Now.Ticks;
+            TimeSpan timeSpan = TimeSpan.FromTicks(passedTime - _startedTime);
+            await Task.Delay(1000);
+            await _dialogService.DisplayAlertAsync("Congrats!", String.Format("You passed in {0} min {1} sec {2} ms!", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds), "Submit");
+            NavigationParameters parameters = new NavigationParameters();
+            parameters.Add("Game", "Buttons");
+            parameters.Add("Player", _userName);
+            parameters.Add("Score", passedTime);
+            await NavigationService.NavigateAsync(new System.Uri("https://Games.com/NavigationPage/GameChosePage/ScoreResultsPage", UriKind.Absolute), parameters);
+        }
+
+
+        #endregion
     }
 }

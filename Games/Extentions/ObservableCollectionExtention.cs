@@ -87,13 +87,7 @@ namespace Games.Extentions
 
         public static bool IsAllOrdered(this List<ButtonsHolderContentViewViewModel> collection)
         {
-            int result = 0;
-
-            foreach (ButtonsHolderContentViewViewModel vm in collection)
-                if (vm.IsOrdered)
-                    result++;
-
-            return result == 16;
+            return currentOrderPosition == 16;
         }
 
     }
