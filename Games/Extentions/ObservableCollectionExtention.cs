@@ -28,16 +28,6 @@ namespace Games.Extentions
             return collection;
         }
 
-        public static EButtonType CollectedButtons(this List<ButtonsHolderContentViewViewModel> collection)
-        {
-            foreach (ButtonsHolderContentViewViewModel vm in collection)
-            {
-                if (vm.IsSelected && !vm.IsOrdered)
-                    return vm.CurrentType;
-            }
-            return EButtonType.Null;
-        }
-
         public static bool IsAnotherSelected(this List<ButtonsHolderContentViewViewModel> collection, EButtonType type)
         {
             foreach (ButtonsHolderContentViewViewModel vm in collection)

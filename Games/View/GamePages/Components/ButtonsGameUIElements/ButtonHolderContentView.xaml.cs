@@ -123,7 +123,9 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
         private async void ButtonHolderContentView_BindingContextChanged(object sender, EventArgs e)
         {
             var t = (ButtonHolderContentView)sender;
-            if (t.BindingContext == null) return;
+
+            if (t.BindingContext == null)
+                return;
             await ChangeTypeTo(((ButtonsHolderContentViewViewModel)t.BindingContext).CurrentType);
         }
 

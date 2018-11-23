@@ -45,6 +45,7 @@ namespace Games.ViewModel.GamePageViewModels
                 new ButtonsHolderContentViewViewModel(EButtonType.Four, agregator)
             };
             _startedTime = DateTime.Now.Ticks;
+
             agregator.GetEvent<ButtonPressedEvent>().Subscribe(OnAnyButtonPressed);
             agregator.GetEvent<GameEndsEvent>().Subscribe(OnGameEnds);
         }
@@ -73,13 +74,15 @@ namespace Games.ViewModel.GamePageViewModels
 
         private void OnAnyButtonPressed(EButtonType type)
         {
-            EButtonType collected = ItemsSource.CollectedButtons();
-            int Count = ItemsSource.GetNumberOfSelectedButton();
+            int count;
 
             if (ItemsSource.IsAnotherSelected(type))
                 ItemsSource.UnselectAll();
-            if (Count == 4)
-                ItemsSource.ReorderByType(collected);
+
+            count = ItemsSource.GetNumberOfSelectedButton();
+
+            if (count == 4)
+                ItemsSource.ReorderByType(type);
 
             RaisePropertyChanged(nameof(ItemsSource));
 
@@ -91,6 +94,7 @@ namespace Games.ViewModel.GamePageViewModels
         {
             long passedTime = DateTime.Now.Ticks;
             TimeSpan timeSpan = TimeSpan.FromTicks(passedTime - _startedTime);
+
             await Task.Delay(1000);
             await _dialogService.DisplayAlertAsync("Congrats!", String.Format("You passed in {0} min {1} sec {2} ms!", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds), "Submit");
             NavigationParameters parameters = new NavigationParameters();

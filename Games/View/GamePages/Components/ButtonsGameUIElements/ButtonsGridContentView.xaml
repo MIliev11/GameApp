@@ -25,7 +25,7 @@
         
         
         <local:ButtonHolderContentView Grid.Row="0" Grid.Column="0" BindingContext="{Binding Source={x:Reference This}, Path=Items[0], Mode=TwoWay}"
-                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=OneWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
+                                       ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
         <local:ButtonHolderContentView Grid.Row="0" Grid.Column="1" BindingContext="{Binding Source={x:Reference This}, Path=Items[1], Mode=TwoWay}"
                                        ButtonType="{Binding CurrentType, Mode=TwoWay}" Selected="{Binding IsSelected, Mode=TwoWay}" Command="{Binding ButtonClick, Mode=OneWay}" Ordered="{Binding IsOrdered, Mode=TwoWay}" />
         <local:ButtonHolderContentView Grid.Row="0" Grid.Column="2" BindingContext="{Binding Source={x:Reference This}, Path=Items[2], Mode=TwoWay}"
