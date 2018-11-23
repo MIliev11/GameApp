@@ -13,14 +13,13 @@ namespace Games.ViewModel.GamePageViewModels.ComponentsViewModels
     public class ButtonsHolderContentViewViewModel : BindableBase
     {
 
+        private IEventAggregator _eventAgregator;
+
         public ButtonsHolderContentViewViewModel(EButtonType currentType, IEventAggregator agregregator)
         {
             CurrentType = currentType;
-            _buttonClick = new Command(() =>
-            {
-                IsSelected = !IsSelected;
-                agregregator.GetEvent<ButtonPressedEvent>().Publish(CurrentType);
-            });
+            _eventAgregator = agregregator;
+            _buttonClick = new Command(OnButtonClickHandler);
         }
 
         #region -- Public properties --
@@ -68,6 +67,16 @@ namespace Games.ViewModel.GamePageViewModels.ComponentsViewModels
         {
             get => _buttonClick;
             set => SetProperty(ref _buttonClick, value);
+        }
+
+        #endregion
+
+        #region -- Private helpers --
+
+        private void OnButtonClickHandler()
+        {
+            IsSelected = !IsSelected;
+            _eventAgregator.GetEvent<ButtonPressedEvent>().Publish(CurrentType);
         }
 
         #endregion

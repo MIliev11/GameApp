@@ -100,19 +100,19 @@ namespace Games.View.GamePages.Components.ButtonsGameUIElements
             {
                 case EButtonType.One:
                     SelectedColor = Color.Blue;
-                    ImageSource = ImageSource.FromFile("a.png");
+                    ImageSource = ImageSource.FromResource("Games.Resources.a.png");
                     break;
                 case EButtonType.Two:
                     SelectedColor = Color.Yellow;
-                    ImageSource = ImageSource.FromFile("b.png");
+                    ImageSource = ImageSource.FromResource("Games.Resources.b.png");
                     break;
                 case EButtonType.Three:
                     SelectedColor = Color.Green;
-                    ImageSource = ImageSource.FromFile("c.png");
+                    ImageSource = ImageSource.FromResource("Games.Resources.c.png");
                     break;
                 case EButtonType.Four:
                     SelectedColor = Color.Red;
-                    ImageSource = ImageSource.FromFile("d.png");
+                    ImageSource = ImageSource.FromResource("Games.Resources.d.png");
                     break;
             }
             CurrentColor = Selected ? SelectedColor : Color.White;
