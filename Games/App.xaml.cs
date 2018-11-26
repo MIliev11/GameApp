@@ -17,7 +17,10 @@ namespace Games
     public partial class App : PrismApplication
     {
 
-        public App(IPlatformInitializer platformInitializer) : base(platformInitializer) { }
+        public App(IPlatformInitializer platformInitializer) : base(platformInitializer)
+        { }
+
+        #region -- Overrides --
 
         protected override async void OnInitialized()
         {
@@ -36,6 +39,8 @@ namespace Games
             containerRegistry.RegisterForNavigation<GameChosePage, GameChosePageViewModel>();
             containerRegistry.RegisterForNavigation<ScoreResultsPage, ScoreResultsPageViewModel>();
         }
+
+        #endregion
 
     }
 }

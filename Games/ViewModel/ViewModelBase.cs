@@ -15,18 +15,12 @@ namespace Games.ViewModel
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)
-        {
-
-        }
+        { }
 
         public void OnNavigatedTo(INavigationParameters parameters)
-        {
-
-        }
+        { }
 
         public void OnNavigatingTo(INavigationParameters parameters)
-        {
-
-        }
+        { }
     }
 }
