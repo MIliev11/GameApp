@@ -20,13 +20,18 @@ namespace Games.ViewModel
         {
             _pageDialog = pageDialog;
             _userManager = new UserManager();
-            OnStartPressedCommand = new DelegateCommand(() => OnStarted());
+            OnStartPressedCommand = new DelegateCommand(OnStarted);
             Username = _userManager.GetDefaultUsername();
         }
 
         #region -- Public properties --
 
-        public ICommand OnStartPressedCommand { get; set; }
+        private ICommand _onStartPressedCommand;
+        public ICommand OnStartPressedCommand
+        {
+            get => _onStartPressedCommand;
+            set => SetProperty(ref _onStartPressedCommand, value);
+        }
 
         private string _username;
         public string Username
