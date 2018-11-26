@@ -10,22 +10,16 @@ namespace Games.ViewModel
 
         public ViewModelBase(INavigationService navigation)
         {
-
+            NavigationService = navigation;
         }
 
         public void OnNavigatedFrom(INavigationParameters parameters)
-        {
-
-        }
+        { }
 
         public void OnNavigatedTo(INavigationParameters parameters)
-        {
-
-        }
+        { }
 
         public void OnNavigatingTo(INavigationParameters parameters)
-        {
-
-        }
+        { }
     }
 }
