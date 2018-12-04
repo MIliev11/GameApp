@@ -4,12 +4,10 @@ using Xamarin.Forms.Xaml;
 using Prism;
 using Prism.Unity;
 using Prism.Ioc;
-using Games.View;
 using Games.ViewModel;
-using Games.ViewModel.GamePageViewModels;
-using Games.View.GamePages;
 using Prism.Events;
-using Games.Events;
+using Games.View;
+using Prism.Navigation;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Games
@@ -26,18 +24,16 @@ namespace Games
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("NavigationPage/GamePageButtons");
+            NavigationParameters parameters = new NavigationParameters();
+            parameters.Add("player", "King");
+            await NavigationService.NavigateAsync("NavigationPage/ButtonsGamePage", parameters);
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
 
-            containerRegistry.RegisterForNavigation<GamePageButtons, ButtonsGamePageViewModel>();
-
-            containerRegistry.RegisterForNavigation<RegistrationPage, RegistrationPageViewModel>();
-            containerRegistry.RegisterForNavigation<GameChosePage, GameChosePageViewModel>();
-            containerRegistry.RegisterForNavigation<ScoreResultsPage, ScoreResultsPageViewModel>();
+            containerRegistry.RegisterForNavigation<ButtonsGamePage, ButtonsGamePageViewModel>();
         }
 
         #endregion

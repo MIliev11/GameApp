@@ -1,9 +1,9 @@
-FormsViewGroup
 Games
+System.Runtime
+FormsViewGroup
 Prism
 Prism.Forms
 Prism.Unity.Forms
-System.Runtime
 Unity.Abstractions
 Unity.Container
 Xamarin.Android.Arch.Core.Common

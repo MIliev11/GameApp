@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Games.ContentViews"
+             xmlns:converters="clr-namespace:Games.Converters"
+             x:Class="Games.ContentViews.ButtonsGameGrid">
+    
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <converters:TypeToColorConverter x:Key="colorConverter" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <local:SelectedButton BindingContext="{Binding ItemSource[0]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="0" Grid.Column="0"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[1]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="0" Grid.Column="1"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[2]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="0" Grid.Column="2"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[3]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="0" Grid.Column="3"/>
+        
+        <local:SelectedButton BindingContext="{Binding ItemSource[4]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="1" Grid.Column="0"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[5]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="1" Grid.Column="1"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[6]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="1" Grid.Column="2"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[7]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="1" Grid.Column="3"/>
+        
+        <local:SelectedButton BindingContext="{Binding ItemSource[8]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="2" Grid.Column="0"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[9]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="2" Grid.Column="1"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[10]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="2" Grid.Column="2"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[11]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="2" Grid.Column="3"/>
+        
+        <local:SelectedButton BindingContext="{Binding ItemSource[12]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="3" Grid.Column="0"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[13]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="3" Grid.Column="1"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[14]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="3" Grid.Column="2"/>
+        <local:SelectedButton BindingContext="{Binding ItemSource[15]}" SelectedColor="{Binding CurrentType, Converter={StaticResource colorConverter}}"
+                              IsSelected="{Binding IsSelected}" Grid.Row="3" Grid.Column="3"/>
+        
+    </Grid>
+    
+</ContentView>

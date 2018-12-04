@@ -16,32 +16,35 @@
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="View\" />
-    <Folder Include="View\GamePages\" />
     <Folder Include="ViewModel\" />
-    <Folder Include="ViewModel\GamePageViewModels\" />
-    <Folder Include="Services\" />
+    <Folder Include="Extentions\" />
+    <Folder Include="ContentViews\" />
+    <Folder Include="ControllsViewModels\" />
+    <Folder Include="Converters\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="PrismApplication.cs" />
     <Compile Remove="View\MainPage.xaml.cs" />
     <Compile Remove="View\Games\ButtonsGameView\ButtonComponent.xaml.cs" />
     <Compile Remove="View\GamePages\ButtonsGamePage.cs" />
+    <Compile Remove="Model\ButtonsGame\EButtonType.cs" />
+    <Compile Remove="View\GamePages\Components\ButtonsGameUIElements\ButtonHolderContentView.xaml.cs" />
+    <Compile Remove="View\GamePages\GamePageButtons.xaml.cs" />
+    <Compile Remove="ViewModel\GamePageViewModels\ButtonsGamePageViewModel.cs" />
+    <Compile Remove="ViewModel\GamePageViewModels\ComponentsViewModels\ButtonsHolderContentViewViewModel.cs" />
+    <Compile Remove="Events\ButtonPressedEvent.cs" />
+    <Compile Remove="Events\GameEndsEvent.cs" />
+    <Compile Remove="Model\ImageSourceProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Remove="View\Games\Buttons.xaml" />
     <EmbeddedResource Remove="View\MainPage.xaml" />
     <EmbeddedResource Remove="View\Games\ButtonsGameView\ButtonComponent.xaml" />
+    <EmbeddedResource Remove="View\GamePages\Components\ButtonsGameUIElements\ButtonHolderContentView.xaml" />
+    <EmbeddedResource Remove="View\GamePages\Components\ButtonsGameUIElements\ButtonsGridContentView.xaml" />
+    <EmbeddedResource Remove="View\GamePages\GamePageButtons.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="Resources\a.png" />
-    <None Remove="Resources\b.png" />
-    <None Remove="Resources\c.png" />
-    <None Remove="Resources\d.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\a.png" />
-    <EmbeddedResource Include="Resources\b.png" />
-    <EmbeddedResource Include="Resources\c.png" />
-    <EmbeddedResource Include="Resources\d.png" />
+    <None Remove="View\GamePages\.DS_Store" />
   </ItemGroup>
 </Project>

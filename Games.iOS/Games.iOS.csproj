@@ -161,4 +161,10 @@
       <Name>Games</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\a.png" />
+    <BundleResource Include="Resources\b.png" />
+    <BundleResource Include="Resources\c.png" />
+    <BundleResource Include="Resources\d.png" />
+  </ItemGroup>
 </Project>
